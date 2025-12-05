@@ -1,0 +1,178 @@
+:root {
+  --bg: #f4f6f8;
+  --primary: #1a73e8;
+  --card: #ffffff;
+  --max-width: 980px;
+  --radius: 10px;
+  --primary-dark: #0c3c78;
+  --text: #333333;
+  --accent: #e8f0fe;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Roboto", system-ui, -apple-system, "Segoe UI", "Helvetica Neue",
+    Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+}
+
+header,
+h1 {
+  color: var(--primary);
+  text-align: center;
+  margin-top: 20px;
+}
+
+h2 {
+  text-align: center;
+  color: var(--primary-dark);
+}
+
+img {
+  display: block;
+  margin: auto;
+  max-width: 100%;
+  height: auto;
+}
+
+footer {
+  border-top: 2px solid var(--primary-dark);
+  text-align: center;
+  padding: 16px;
+  background-color: var(--accent);
+  color: var(--primary-dark);
+}
+
+.margin,
+ul {
+  width: 60%;
+  margin: 0 auto;
+  padding: 0;
+}
+
+nav {
+  background: var(--primary-dark);
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+  padding: 12px 16px;
+  flex-wrap: wrap;
+}
+
+nav ul {
+  display: flex;
+  gap: 18px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 8px 12px;
+  border-radius: 6px;
+  transition: background 0.3s ease, outline 0.3s ease;
+}
+
+nav a:hover,
+nav a:focus {
+  outline: 2px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.card {
+  background: var(--card);
+  padding: 24px;
+  border-radius: var(--radius);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+  margin-bottom: 20px;
+}
+
+/* 🎯 Styled selection box */
+selection {
+  display: block;
+  background: var(--accent);
+  border-left: 6px solid var(--primary);
+  padding: 24px;
+  margin: 40px auto;
+  width: 80%;
+  max-width: 800px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+@media (max-width: 768px) {
+  /* Hide the nav panel by default */
+  nav ul {
+    display: none;
+    flex-direction: column; /* vertical layout */
+    background-color: var(--card);
+    border-radius: var(--radius);
+    padding: 20px;
+    width: 320px;
+    height: auto;
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.15);
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 999;
+    text-align: center;
+    gap: 16px;
+  }
+
+  /* ✅ Show nav when menu is toggled */
+  #menu-toggle:checked ~ nav ul {
+    display: flex;
+  }
+
+  /* Menu button */
+  #menu-toggle-label {
+    display: block;
+    background-color: var(--primary);
+    color: white;
+    padding: 10px 16px;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 6px;
+    font-weight: bold;
+    margin: 10px auto;
+    width: fit-content;
+  }
+
+  #menu-toggle {
+    display: none;
+  }
+
+  /* Optional: center links in the popup */
+  nav ul li {
+    list-style: none;
+  }
+
+  nav ul li a {
+    text-decoration: none;
+    font-weight: bold;
+    color: var(--primary-dark);
+    transition: color 0.3s ease;
+  }
+
+  nav ul li a:hover {
+    color: var(--primary);
+  }
+
+  /* Adjust cards on small screens */
+  .card,
+  selection {
+    padding: 16px;
+    width: 90%;
+  }
+}
